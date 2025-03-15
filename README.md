@@ -2,6 +2,58 @@
 
 ---
 
+## Deploy Link
+
+[Click here to view the deployed app](https://notes-taking-dev.netlify.app/)
+
+---
+
+## Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+Make sure you have the following installed on your local machine:
+
+- Node.js
+- npm (Node Package Manager)
+
+### Installation
+
+1. Clone the repo:
+   ```sh
+   git clone https://github.com/your-username/notes-app.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd notes-app
+   ```
+3. Install NPM packages:
+   ```sh
+   npm install
+   ```
+
+### Running the App
+
+To start the development server, run:
+
+```sh
+npm run dev
+```
+
+### Building for Production
+
+To create a production build, run:
+
+```sh
+npm run build
+```
+
+This will create an optimized build of the app in the `build` directory.
+
+---
+
 ## Features
 
 - **Create Notes**: Add new notes with a heading and body.

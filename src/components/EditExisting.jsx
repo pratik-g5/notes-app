@@ -33,8 +33,12 @@ const EditExisting = () => {
   };
 
   const handleDeleteNote = () => {
-    dispatch(toggleEditExisting());
-    dispatch(deleteNote({ index: editIndex }));
+    if (confirm('Are you sure to delete the Note?')) {
+      dispatch(toggleEditExisting());
+      dispatch(deleteNote({ index: editIndex }));
+    } else {
+      return;
+    }
   };
 
   if (!currentNote) {
