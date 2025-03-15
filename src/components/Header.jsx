@@ -15,7 +15,7 @@ const Header = () => {
         {isAuthenticated ? (
           <div className="flex">
             <h1 className="mr-2 text-black pt-2 font-semibold text-xl">
-              {'Hello, ' + (user ? user.given_name : 'User') + '!'}
+              {'Hello, ' + (user.given_name ? user.given_name : 'User') + '!'}
             </h1>
             <button
               className="mr-10 py-2 px-3 font-semibold rounded-lg bg-purple-800 hover:bg-purple-900"
