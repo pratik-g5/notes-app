@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleEditExisting, updateNotes } from '../redux/noteSlice';
+import {
+  deleteNote,
+  toggleEditExisting,
+  updateNotes,
+} from '../redux/noteSlice';
 
 const EditExisting = () => {
   const dispatch = useDispatch();
@@ -12,8 +16,10 @@ const EditExisting = () => {
   const [editHeading, setEditHeading] = useState(heading);
   const [editNote, setEditNote] = useState(note);
 
+  const currentNote = notes?.[editIndex];
+
   useEffect(() => {
-    if (notes && editIndex) {
+    if (currentNote) {
       setEditHeading(heading);
       setEditNote(note);
     }
@@ -25,6 +31,15 @@ const EditExisting = () => {
       updateNotes({ index: editIndex, heading: editHeading, note: editNote })
     );
   };
+
+  const handleDeleteNote = () => {
+    dispatch(toggleEditExisting());
+    dispatch(deleteNote({ index: editIndex }));
+  };
+
+  if (!currentNote) {
+    return null;
+  }
 
   return (
     <div className="w-6/12 mx-auto border border-gray-300 rounded-lg shadow-lg">
@@ -45,10 +60,16 @@ const EditExisting = () => {
         ></textarea>
       </div>
       <button
-        className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-4/12 mb-3 ml-2 font-semibold bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
         onClick={handleToggleEdit}
       >
         Save
+      </button>
+      <button
+        className="w-2/12 items-end font-semibold mb-3 ml-2 bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        onClick={handleDeleteNote}
+      >
+        Delete
       </button>
     </div>
   );

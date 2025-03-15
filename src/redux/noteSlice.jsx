@@ -28,9 +28,19 @@ const noteSlice = createSlice({
       }
       state.notes[index].note = note;
     },
+    deleteNote: (state, action) => {
+      const { index } = action.payload;
+      state.notes.splice(index, 1);
+      //       state.notes = state.notes.filter((_, i) => i !== index);
+    },
   },
 });
 
-export const { toggleShowEditor, addNotes, toggleEditExisting, updateNotes } =
-  noteSlice.actions;
+export const {
+  toggleShowEditor,
+  addNotes,
+  toggleEditExisting,
+  updateNotes,
+  deleteNote,
+} = noteSlice.actions;
 export default noteSlice.reducer;
