@@ -12,7 +12,7 @@ const NotesCard = ({ index, note }) => {
             {note?.heading}
           </h1>
           <p className="pt-2 text-gray-700">
-            {note?.note.slice(0, 80)} {note.note.length > 50 && '.....'}
+            {note?.note.slice(0, 40)} {note.note.length > 50 && '.....'}
           </p>
         </div>
       </div>
